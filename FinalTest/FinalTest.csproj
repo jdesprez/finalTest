@@ -42,6 +42,7 @@
     <Compile Include="Bases\Calculatrice.cs" />
     <Compile Include="Bases\IOperation.cs" />
     <Compile Include="Bases\Multiplication.cs" />
+    <Compile Include="Linq\Nombres.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bases\Somme.cs" />
     <Compile Include="Bases\TypeReference.cs" />

@@ -52,20 +52,22 @@ namespace FinalTest.Tests
             Check.That(nombresPairs).ContainsExactly(4, 2, 8, 6);
         }
 
-        //[Test]
-        //public void RécupérerLesNombresPairsBis()
-        //{
-        //    var nombres = new Nombres(otherKeyValuePairs);
-        //    var nombresPairs = nombres.NombresPairs; // même propriété
+        [Test]
+        public void RécupérerLesNombresPairsBis()
+        {
+            var nombres = new Nombres(otherKeyValuePairs);
+            var nombresPairs = nombres.NombresPairs; // même propriété
 
-        //    Check.That(nombresPairs).ContainsExactly(10, 74, 28, 66, 92);
-        //}
+            Check.That(nombresPairs).ContainsExactly(10, 74, 28, 66, 92);
+        }
 
         //[Test]
         //public void RécupérerUneChaîneContenantLesNombresImpairsAuFormatTextuel()
         //{
         //    var nombres = new Nombres(keyValuePairs);
-        //    var texteNombresImpairs = nombres.TexteNombresImpairs; // retourne une string en utilisant Linq (i.e sans utiliser de boucles) -> Aggregate + OrderBy
+        //    var texteNombresImpairs = nombres.TexteNombresImpairs; 
+        //     retourne une string en utilisant Linq (i.e sans utiliser de boucles) 
+        //     -> Aggregate + OrderBy
 
         //    Check.That(texteNombresImpairs).IsEqualTo("un, trois, cinq, sept, neuf");
         //}
