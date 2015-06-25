@@ -72,6 +72,10 @@ namespace FinalTest.Patterns
                 }
                 solde = iNewSolde;
             }
+            else
+            {
+                throw new RetraitNonAutorisé();
+            }
 
             return listRet;
         }

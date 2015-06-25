@@ -49,6 +49,7 @@
     <Compile Include="Patterns\DépotRéalisé.cs" />
     <Compile Include="Patterns\IEvenementMetier.cs" />
     <Compile Include="Patterns\Montant.cs" />
+    <Compile Include="Patterns\RetraitNonAutorisé.cs" />
     <Compile Include="Patterns\RetraitRéalisé.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bases\Somme.cs" />
