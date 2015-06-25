@@ -30,5 +30,11 @@ namespace FinalTest.Linq
         {
             get { return keyValuePairs.Select(x => x.Key).First(x => x.Length > 5); }
         }
+
+        // retourne un IEnumerable<int> en utilisant Linq (i.e sans utiliser de boucles) -> OrderBy + Skip + Take
+        public IEnumerable<int> QuatreNombresSupérieursSuivant3
+        {
+            get { return keyValuePairs.OrderBy(x => x.Value).Skip(3).Take(4).Select(x => x.Value); }
+        }
     }
 }
