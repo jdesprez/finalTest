@@ -1,14 +1,14 @@
-﻿namespace FinalTest.Tests
+﻿namespace FinalTest.Patterns
 {
     public struct CompteCréé : IEvenementMetier
     {
-        private readonly string _numéroDeCompte;
-        private readonly int _autorisationDeCrédit;
+        public string NuméroDeCompte { get; private set; }
+        public int AutorisationDeCrédit { get; private set; }
 
-        public CompteCréé(string numéroDeCompte, int autorisationDeCrédit)
+        public CompteCréé(string numéroDeCompte, int autorisationDeCrédit) : this()
         {
-            _numéroDeCompte = numéroDeCompte;
-            _autorisationDeCrédit = autorisationDeCrédit;
+            NuméroDeCompte = numéroDeCompte;
+            AutorisationDeCrédit = autorisationDeCrédit;
         }
     }
 }
