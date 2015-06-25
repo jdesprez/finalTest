@@ -2,7 +2,7 @@
 
 namespace FinalTest
 {
-    public class Multiplication : ICalcul
+    public class Somme : ICalcul
     {
         public bool PeutCalculer(string sCalc)
         {
@@ -10,11 +10,11 @@ namespace FinalTest
 
             if (sCalc.Contains("+"))
             {
-                bRet = bRet && false;
+                bRet = bRet && true;
             }
             else if (sCalc.Contains("*"))
             {
-                bRet = bRet && true;
+                bRet = bRet && false;
             }
 
             return bRet;
@@ -22,13 +22,13 @@ namespace FinalTest
 
         public int Calculer(string sCalc)
         {
-            int iRet = 1;
+            int iRet = 0;
 
-            string[] split = sCalc.Split(new Char[] { '*' });
+            string[] split = sCalc.Split(new Char[] { '+' });
 
             foreach (var s in split)
             {
-                iRet = iRet * int.Parse(s);
+                iRet = iRet + int.Parse(s);
             }
 
             return iRet;
