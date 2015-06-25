@@ -23,15 +23,15 @@ namespace FinalTest.Tests
             Check.That(typeof(TypeValeur).IsValueType).IsTrue();
         }
 
-        //[Test]
-        //public void DéfinirUnTypeRéférenceAvecEgalitéDeuxInstancesAyantLesMêmesPropriétés()
-        //{
-        //    var valeur1 = new TypeReference(12);
-        //    var valeur2 = new TypeReference(12);
+        [Test]
+        public void DéfinirUnTypeRéférenceAvecEgalitéDeuxInstancesAyantLesMêmesPropriétés()
+        {
+            var valeur1 = new TypeReference(12);
+            var valeur2 = new TypeReference(12);
 
-        //    Check.That(valeur1).IsEqualTo(valeur2);
-        //    Check.That(typeof(TypeReference).IsValueType).IsFalse();
-        //}
+            Check.That(valeur1).IsEqualTo(valeur2);
+            Check.That(typeof(TypeReference).IsValueType).IsFalse();
+        }
 
         [Test]
         public void DéfinirUneClasseRealisantUneMultiplication()
