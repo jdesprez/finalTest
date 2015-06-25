@@ -81,14 +81,16 @@ namespace FinalTest.Tests
             Check.That(texteNombresImpairs).IsEqualTo("dix-sept, vingt-trois, cinquante et un, quatre-vingt-neuf");
         }
 
-        //[Test]
-        //public void RécupérerLePremierNombreDontLeTexteContientPlusDe5Caractères()
-        //{
-        //    var nombres = new Nombres(keyValuePairs);
-        //    var premierNombreDontLeTexteContientPlusDe5Caractères = nombres.PremierNombreDontLeTexteContientPlusDe5Caractères; // retourne une string en utilisant Linq (i.e sans utiliser de boucles) -> First
+        [Test]
+        public void RécupérerLePremierNombreDontLeTexteContientPlusDe5Caractères()
+        {
+            var nombres = new Nombres(keyValuePairs);
+            var premierNombreDontLeTexteContientPlusDe5Caractères = nombres.PremierNombreDontLeTexteContientPlusDe5Caractères; 
+            // retourne une string en utilisant Linq (i.e sans utiliser de boucles) 
+            // -> First
 
-        //    Check.That(premierNombreDontLeTexteContientPlusDe5Caractères).IsEqualTo("quatre");
-        //}
+            Check.That(premierNombreDontLeTexteContientPlusDe5Caractères).IsEqualTo("quatre");
+        }
 
 
         //[Test]

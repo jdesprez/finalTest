@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace FinalTest.Linq
 {
@@ -23,7 +24,11 @@ namespace FinalTest.Linq
         public string TexteNombresImpairs
         {
             get { return keyValuePairs.OrderBy(x => x.Value).Aggregate(String.Empty, (cur, next) => cur + ((next.Value % 2 == 1) ? (", " + next.Key) : "")).Substring(2); }
-        } 
+        }
 
+        public string PremierNombreDontLeTexteContientPlusDe5Caractères
+        {
+            get { return keyValuePairs.Select(x => x.Key).First(x => x.Length > 5); }
+        }
     }
 }
