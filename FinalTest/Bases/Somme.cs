@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FinalTest
+namespace FinalTest.Bases
 {
     public class Somme : IOperation
     {

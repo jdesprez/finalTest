@@ -1,4 +1,4 @@
-﻿namespace FinalTest
+﻿namespace FinalTest.Bases
 {
     public interface IOperation
     {
