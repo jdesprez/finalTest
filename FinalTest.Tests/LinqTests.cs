@@ -72,14 +72,14 @@ namespace FinalTest.Tests
             Check.That(texteNombresImpairs).IsEqualTo("un, trois, cinq, sept, neuf");
         }
 
-        //[Test]
-        //public void RécupérerUneChaîneContenantLesNombresImpairsAuFormatTextuelBis()
-        //{
-        //    var nombres = new Nombres(otherKeyValuePairs);
-        //    var texteNombresImpairs = nombres.TexteNombresImpairs;  // meme propriété
+        [Test]
+        public void RécupérerUneChaîneContenantLesNombresImpairsAuFormatTextuelBis()
+        {
+            var nombres = new Nombres(otherKeyValuePairs);
+            var texteNombresImpairs = nombres.TexteNombresImpairs;  // meme propriété
 
-        //    Check.That(texteNombresImpairs).IsEqualTo("dix-sept, vingt-trois, cinquante et un, quatre-vingt-neuf");
-        //}
+            Check.That(texteNombresImpairs).IsEqualTo("dix-sept, vingt-trois, cinquante et un, quatre-vingt-neuf");
+        }
 
         //[Test]
         //public void RécupérerLePremierNombreDontLeTexteContientPlusDe5Caractères()
