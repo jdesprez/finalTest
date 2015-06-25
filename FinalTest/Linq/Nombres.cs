@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FinalTest.Linq
@@ -16,5 +17,13 @@ namespace FinalTest.Linq
         public IEnumerable<int> NombresPairs {
             get { return keyValuePairs.Where(s => s.Value%2 == 0).Select(x => x.Value); }
         }
+
+        // retourne une string en utilisant Linq (i.e sans utiliser de boucles) 
+        // -> Aggregate + OrderBy
+        public string TexteNombresImpairs
+        {
+            get { return keyValuePairs.OrderBy(x => x.Value).Aggregate(String.Empty, (cur, next) => cur + ((next.Value % 2 == 1) ? (", " + next.Key) : "")).Substring(2); }
+        } 
+
     }
 }

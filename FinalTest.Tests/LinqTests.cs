@@ -61,16 +61,16 @@ namespace FinalTest.Tests
             Check.That(nombresPairs).ContainsExactly(10, 74, 28, 66, 92);
         }
 
-        //[Test]
-        //public void RécupérerUneChaîneContenantLesNombresImpairsAuFormatTextuel()
-        //{
-        //    var nombres = new Nombres(keyValuePairs);
-        //    var texteNombresImpairs = nombres.TexteNombresImpairs; 
-        //     retourne une string en utilisant Linq (i.e sans utiliser de boucles) 
-        //     -> Aggregate + OrderBy
+        [Test]
+        public void RécupérerUneChaîneContenantLesNombresImpairsAuFormatTextuel()
+        {
+            var nombres = new Nombres(keyValuePairs);
+            var texteNombresImpairs = nombres.TexteNombresImpairs; 
+            // retourne une string en utilisant Linq (i.e sans utiliser de boucles) 
+            // -> Aggregate + OrderBy
 
-        //    Check.That(texteNombresImpairs).IsEqualTo("un, trois, cinq, sept, neuf");
-        //}
+            Check.That(texteNombresImpairs).IsEqualTo("un, trois, cinq, sept, neuf");
+        }
 
         //[Test]
         //public void RécupérerUneChaîneContenantLesNombresImpairsAuFormatTextuelBis()
