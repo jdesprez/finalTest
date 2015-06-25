@@ -2,7 +2,7 @@
 
 namespace FinalTest
 {
-    public class Multiplication : ICalcul
+    public class Multiplication : IOperation
     {
         public bool PeutCalculer(string sCalc)
         {

@@ -2,7 +2,7 @@
 
 namespace FinalTest
 {
-    public class Somme : ICalcul
+    public class Somme : IOperation
     {
         public bool PeutCalculer(string sCalc)
         {
