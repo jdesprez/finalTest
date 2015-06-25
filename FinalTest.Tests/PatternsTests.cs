@@ -17,7 +17,7 @@ namespace FinalTest.Tests
         public void OuvrirUnCompteBancaireProduitUnEvénement()
         {
             var autorisationDeCrédit = 0;
-            var evenements = CompteBancaire.Ouvrir(_numéroDeCompte, autorisationDeCrédit); 
+            var evenements = CompteBancaire.Ouvrir(_numéroDeCompte, autorisationDeCrédit);
             // retourne un IEnumerable<IEvenementMetier> contenant l'événement CompteCréé
 
             Check.That(evenements).ContainsExactly(new CompteCréé(_numéroDeCompte, autorisationDeCrédit));
@@ -27,11 +27,11 @@ namespace FinalTest.Tests
         public void EtantDonnéUnCompteBancaireFaireUnDepotProduitUnEvenement()
         {
             // Event Sourcing avec un seul événement
-            var compteBancaire = new CompteBancaire(new CompteCréé(_numéroDeCompte, 0)); 
+            var compteBancaire = new CompteBancaire(new CompteCréé(_numéroDeCompte, 0));
             var montantDepot = new Montant(10);
             var dateDepot = DateTime.Now;
             // retourne un IEnumerable<IEvenementMetier> contenant l'événement DepotRealisé
-            var evenements = compteBancaire.FaireUnDepot(montantDepot, dateDepot); 
+            var evenements = compteBancaire.FaireUnDepot(montantDepot, dateDepot);
 
             Check.That(evenements).ContainsExactly(new DépotRéalisé(_numéroDeCompte, montantDepot, dateDepot));
         }
@@ -56,7 +56,7 @@ namespace FinalTest.Tests
             var montantRetrait = new Montant(10);
             var dateRetrait = DateTime.Now;
             // retourne un IEnumerable<IEvénémentMétier> contenant l'événement RetraitRealisé
-            var evenements = compteBancaire.FaireUnRetrait(montantRetrait, dateRetrait); 
+            var evenements = compteBancaire.FaireUnRetrait(montantRetrait, dateRetrait);
 
             Check.That(evenements).ContainsExactly<IEvenementMetier>(new RetraitRéalisé(_numéroDeCompte, montantRetrait, dateRetrait), new BalanceNégativeDétectée(_numéroDeCompte, new Montant(5), dateRetrait));
         }
@@ -73,21 +73,22 @@ namespace FinalTest.Tests
             Check.That(evenements).IsEmpty();
         }
 
-        //[Test]
-        //public void EtantDonnéLaSynthèseDuCompteQuandUnEvénementRetraitRéaliséLaSynthèseEstModifiée()
-        //{
-        //    var debits = 145;
-        //    var credits = 120;
-        //    var synthèseDuCompte = new SynthèseCompteBancaire(_numéroDeCompte, debits, credits); // utilisé une classe avec implémentation de Equals 
-        //    var repository = new FakeRepository();
-        //    repository.Synthèses.Add(synthèseDuCompte);
+        [Test]
+        public void EtantDonnéLaSynthèseDuCompteQuandUnEvénementRetraitRéaliséLaSynthèseEstModifiée()
+        {
+            var debits = 145;
+            var credits = 120;
+            // utilisé une classe avec implémentation de Equals 
+            var synthèseDuCompte = new SynthèseCompteBancaire(_numéroDeCompte, debits, credits);
+            var repository = new FakeRepository();
+            repository.Synthèses.Add(synthèseDuCompte);
+            // /!\ bien utilisé l'interface et non la classe Fake dans la signature du constructeur
+            var projection = new SynthèseCompteBancaireProjection(repository);
+            var retraitRéalisé = new RetraitRéalisé(_numéroDeCompte, new Montant(15), DateTime.Now);
+            projection.Handle(retraitRéalisé);
 
-        //    var projection = new SynthèseCompteBancaireProjection(repository); // /!\ bien utilisé l'interface et non la classe Fake dans la signature du constructeur
-        //    var retraitRéalisé = new RetraitRéalisé(_numéroDeCompte, new Montant(15), DateTime.Now);
-        //    projection.Handle(retraitRéalisé);
-
-        //    Check.That(repository.Synthèses).ContainsExactly(new SynthèseCompteBancaire(_numéroDeCompte, 160, credits));
-        //}
+            Check.That(repository.Synthèses).ContainsExactly(new SynthèseCompteBancaire(_numéroDeCompte, 160, credits));
+        }
 
         //public class FakeRepository : ISynthèseCompteBancaireRepository
         //{
