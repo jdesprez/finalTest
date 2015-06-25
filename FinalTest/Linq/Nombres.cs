@@ -34,7 +34,7 @@ namespace FinalTest.Linq
         // retourne un IEnumerable<int> en utilisant Linq (i.e sans utiliser de boucles) -> OrderBy + Skip + Take
         public IEnumerable<int> QuatreNombresSupérieursSuivant3
         {
-            get { return keyValuePairs.OrderBy(x => x.Value).Skip(3).Take(4).Select(x => x.Value); }
+            get { return keyValuePairs.OrderBy(x => x.Value).SkipWhile(x => x.Value <= 3).Take(4).Select(x => x.Value); }
         }
     }
 }
