@@ -4,15 +4,15 @@ namespace FinalTest.Patterns
 {
     public struct DépotRéalisé : IEvenementMetier
     {
-        private readonly string _numéroDeCompte;
-        private readonly Montant _montantDepot;
-        private readonly DateTime _dateDepot;
+        public string NuméroDeCompte { get; private set; }
+        public Montant MontantDepot { get; private set; }
+        public DateTime DateDepot { get; private set; }
 
-        public DépotRéalisé(string numéroDeCompte, Montant montantDepot, DateTime dateDepot)
+        public DépotRéalisé(string numéroDeCompte, Montant montantDepot, DateTime dateDepot) : this()
         {
-            _numéroDeCompte = numéroDeCompte;
-            _montantDepot = montantDepot;
-            _dateDepot = dateDepot;
+            NuméroDeCompte = numéroDeCompte;
+            MontantDepot = montantDepot;
+            DateDepot = dateDepot;
         }
     }
 }

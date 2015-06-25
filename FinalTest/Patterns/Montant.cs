@@ -1,12 +1,12 @@
 namespace FinalTest.Patterns
 {
-    public class Montant
+    public struct Montant
     {
-        private int i;
+        public int Value { get; set; }
 
-        public Montant(int i)
+        public Montant(int i) : this()
         {
-            this.i = i;
+            Value = i;
         }
     }
 }

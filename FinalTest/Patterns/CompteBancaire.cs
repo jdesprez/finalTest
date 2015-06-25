@@ -11,6 +11,8 @@ namespace FinalTest.Patterns
         private string numéroDeCompte ;
         private int autorisationDeCrédit;
 
+        private int solde = 0;
+
         public CompteBancaire(IEvenementMetier compteCréé)
         {
             listEvents = new List<IEvenementMetier>();
@@ -34,6 +36,10 @@ namespace FinalTest.Patterns
                     numéroDeCompte = ((CompteCréé)ev).NuméroDeCompte;
                     autorisationDeCrédit = ((CompteCréé)ev).AutorisationDeCrédit;
                 }
+                else if(ev is DépotRéalisé)
+                {
+                    solde += ((DépotRéalisé) ev).MontantDepot.Value;
+                }
 
                 listEvents.Add(ev);
             }
@@ -52,7 +58,22 @@ namespace FinalTest.Patterns
 
         public IEnumerable<IEvenementMetier> FaireUnRetrait(Montant montantRetrait, DateTime dateRetrait)
         {
-            return new List<IEvenementMetier> { new RetraitRéalisé(numéroDeCompte, montantRetrait, dateRetrait)};
+            
+            List<IEvenementMetier> listRet = new List<IEvenementMetier>();
+
+            int iNewSolde = solde - montantRetrait.Value;
+
+            if (iNewSolde > -autorisationDeCrédit)
+            {
+                listRet.Add(new RetraitRéalisé(numéroDeCompte, montantRetrait, dateRetrait));
+                if (iNewSolde < 0)
+                {
+                    listRet.Add(new BalanceNégativeDétectée(numéroDeCompte, new Montant(autorisationDeCrédit + iNewSolde), dateRetrait));
+                }
+                solde = iNewSolde;
+            }
+
+            return listRet;
         }
     }
 }

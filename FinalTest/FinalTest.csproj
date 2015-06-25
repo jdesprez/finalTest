@@ -43,6 +43,7 @@
     <Compile Include="Bases\IOperation.cs" />
     <Compile Include="Bases\Multiplication.cs" />
     <Compile Include="Linq\Nombres.cs" />
+    <Compile Include="Patterns\BalanceNégativeDétectée.cs" />
     <Compile Include="Patterns\CompteBancaire.cs" />
     <Compile Include="Patterns\CompteCréé.cs" />
     <Compile Include="Patterns\DépotRéalisé.cs" />
