@@ -46,11 +46,15 @@
     <Compile Include="Patterns\BalanceNégativeDétectée.cs" />
     <Compile Include="Patterns\CompteBancaire.cs" />
     <Compile Include="Patterns\CompteCréé.cs" />
+    <Compile Include="Patterns\CRepository.cs" />
     <Compile Include="Patterns\DépotRéalisé.cs" />
     <Compile Include="Patterns\IEvenementMetier.cs" />
+    <Compile Include="Patterns\ISynthèseCompteBancaireRepository.cs" />
     <Compile Include="Patterns\Montant.cs" />
     <Compile Include="Patterns\RetraitNonAutorisé.cs" />
     <Compile Include="Patterns\RetraitRéalisé.cs" />
+    <Compile Include="Patterns\SynthèseCompteBancaire.cs" />
+    <Compile Include="Patterns\SynthèseCompteBancaireProjection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bases\Somme.cs" />
     <Compile Include="Bases\TypeReference.cs" />

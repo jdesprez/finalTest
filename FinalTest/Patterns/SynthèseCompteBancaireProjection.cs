@@ -1,12 +1,12 @@
 ﻿using FinalTest.Patterns;
 
-namespace FinalTest.Tests
+namespace FinalTest.Patterns
 {
     public class SynthèseCompteBancaireProjection
     {
-        private readonly CRepository _repository;
+        private readonly ISynthèseCompteBancaireRepository _repository;
 
-        public SynthèseCompteBancaireProjection(CRepository repository)
+        public SynthèseCompteBancaireProjection(ISynthèseCompteBancaireRepository repository)
         {
             _repository = repository;
         }
@@ -15,14 +15,8 @@ namespace FinalTest.Tests
         {
             if (ev is RetraitRéalisé)
             {
-                foreach (var synt in _repository.Synthèses)
-                {
-                    if (synt.NuméroDeCompte == ((RetraitRéalisé) ev).NuméroDeCompte)
-                    {
-                        synt.Debits += ((RetraitRéalisé) ev).MontantRetrait.Value;
-                    }
-                }
-            }   
+                _repository.Get(((RetraitRéalisé)ev).NuméroDeCompte).Debits += ((RetraitRéalisé)ev).MontantRetrait.Value;
+            }
         }
     }
 }

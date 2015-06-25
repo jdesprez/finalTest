@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FinalTest.Tests
+namespace FinalTest.Patterns
 {
     public class CRepository
     {

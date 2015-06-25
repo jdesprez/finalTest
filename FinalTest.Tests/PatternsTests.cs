@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using NFluent;
 using NUnit.Framework;
 
@@ -90,14 +92,14 @@ namespace FinalTest.Tests
             Check.That(repository.Synthèses).ContainsExactly(new SynthèseCompteBancaire(_numéroDeCompte, 160, credits));
         }
 
-        //public class FakeRepository : ISynthèseCompteBancaireRepository
-        //{
-        //    public List<SynthèseCompteBancaire> Synthèses = new List<SynthèseCompteBancaire>();
+        public class FakeRepository : ISynthèseCompteBancaireRepository
+        {
+            public List<SynthèseCompteBancaire> Synthèses = new List<SynthèseCompteBancaire>();
 
-        //    public SynthèseCompteBancaire Get(string numeroDeCompte) // c'est la seule méthode à mettre dans l'interface
-        //    {
-        //        return Synthèses.First(x => x.NuméroDeCompte == numeroDeCompte);
-        //    }
-        //}
+            public SynthèseCompteBancaire Get(string numeroDeCompte) // c'est la seule méthode à mettre dans l'interface
+            {
+                return Synthèses.First(x => x.NuméroDeCompte == numeroDeCompte);
+            }
+        }
     }
 }
